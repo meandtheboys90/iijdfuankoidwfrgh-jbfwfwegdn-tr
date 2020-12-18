@@ -634,11 +634,21 @@
           "msg2": ""
         },
         {
-          "name": "monkeees",
+          "name": "monkeee",
           "category": "Message",
-          "type": "Send Image",
+          "type": "Send Embed",
           "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "",
           "url": "https://www.placemonkeys.com/500/500?random=1",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
           "savetovariable": "",
           "savetovariabletype": "temp"
         }

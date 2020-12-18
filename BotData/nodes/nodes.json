@@ -1556,13 +1556,11 @@
       "guid": "d90a0ddc-d4c6-4895-bdee-4c0d2c07516c",
       "reactionFields": [],
       "embedfields": [],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
           "connections": [
-            "99595240-3ec1-4cc9-953c-488136bb1d97"
+            "177d85ac-9d39-41ba-83e2-f658a0491df8"
           ]
         }
       ],
@@ -1572,8 +1570,8 @@
           "id": "1a9d6f90-97f4-4cde-a98e-2e42864142c6"
         }
       ],
-      "x": 874,
-      "y": 144,
+      "x": 855,
+      "y": 180,
       "rtype": "Message",
       "rsubtype": "Command Cooldown",
       "formdata": [
@@ -2581,8 +2579,8 @@
     },
     {
       "type": "response",
-      "name": "monkeees",
-      "guid": "99595240-3ec1-4cc9-953c-488136bb1d97",
+      "name": "monkeee",
+      "guid": "177d85ac-9d39-41ba-83e2-f658a0491df8",
       "reactionFields": [],
       "embedfields": [],
       "saveToVariable": "",
@@ -2599,19 +2597,39 @@
           "id": "d90a0ddc-d4c6-4895-bdee-4c0d2c07516c"
         }
       ],
-      "x": 1056,
-      "y": 165,
+      "x": 1064,
+      "y": 168,
       "rtype": "Message",
-      "rsubtype": "Send Image",
+      "rsubtype": "Send Embed",
       "formdata": [
         "${dbsVars.CommandChannel.id}",
+        "FFFFFF",
+        "",
         "https://www.placemonkeys.com/500/500?random=1",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "false",
         "",
         "temp"
       ],
       "formnames": [
-        "channelName",
+        "channelname",
+        "color",
+        "title",
         "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
         "saveToVariable",
         "saveToVariableType"
       ]
