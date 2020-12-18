@@ -1,0 +1,802 @@
+{
+  "command": [
+    {
+      "name": "help",
+      "actions": [
+        {
+          "name": "help menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "```setup```",
+              "value": "Do this to setup bot!\n",
+              "inline": "false"
+            },
+            {
+              "name": "```helpmods```",
+              "value": "Commands for mods!",
+              "inline": "false"
+            },
+            {
+              "name": "```helpeconomy```",
+              "value": "Economy!",
+              "inline": "false"
+            },
+            {
+              "name": "```helpfun```",
+              "value": "Fun stuff!",
+              "inline": "false"
+            }
+          ],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "856649",
+          "title": "epic help!",
+          "url": "",
+          "authorname": "monke",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "purge",
+      "actions": [
+        {
+          "name": "checkuser",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "getcount",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "varname": "purge",
+              "vartype": "Number",
+              "savevartype": "temp",
+              "param": "1"
+            },
+            {
+              "name": "purgemsgs",
+              "category": "Channel Action",
+              "type": "Delete All Messages",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "msgcount": "${tempVars.purge}"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "nopurge",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Sorry, but you don't have perms to delete messages",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "KICK_MEMBERS",
+            "MOVE_MEMBERS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "kick",
+      "perms": [],
+      "actions": [
+        {
+          "name": "checkkick",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "kickk",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "varname": "kickuser",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "muteid",
+              "category": "User Action",
+              "type": "Kick User",
+              "user": "${tempVars.kickuser.id}",
+              "reason": "bad behavior"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "kickno",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Sorry, but you don't have perms to kick members.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "KICK_MEMBERS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "actions": [
+        {
+          "name": "playingcheck",
+          "category": "Bot Action",
+          "type": "Set Bot Activity",
+          "activityname": "in the jungle.",
+          "activitytype": "PLAYING",
+          "streamurl": ""
+        }
+      ]
+    },
+    {
+      "name": "mute",
+      "actions": [
+        {
+          "name": "checkmute",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "getmute",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "varname": "getmutetarget",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "addmute",
+              "category": "User Action",
+              "type": "Add Role to User",
+              "user": "${tempVars.getmutetarget.id}",
+              "rolename": "muted"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "muteno",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Sorry, but you don't have perms to mute members.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "MUTE_MEMBERS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "unmute",
+      "actions": [
+        {
+          "name": "checkunmute",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "getunmute",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "varname": "unmuteuser",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "unmuteuser",
+              "category": "User Action",
+              "type": "Remove Role From User",
+              "user": "<@${tempVars.unmuteuser.id}>",
+              "rolename": "muted",
+              "reason": "unmuted"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "unmuteno",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Sorry, but you don't have perms to unmute members.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "MUTE_MEMBERS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setup",
+      "perms": [],
+      "actions": [
+        {
+          "name": "checkowner",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "muterole",
+              "category": "Server Action",
+              "type": "Add Role to Server",
+              "rolename": "muted",
+              "color": "9C9C9C",
+              "position": "1",
+              "hoist": "false",
+              "mentionable": "false",
+              "savetovariable": "muted",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "mutehelp",
+              "category": "Message",
+              "type": "Send Embed",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "FFFFFF",
+              "title": "How to Setup Monke",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Make sure you have the \"monke\" role at the highest position\n(otherwise it might not work properly)\nMUTE COMMAND\n1. Go to the Server Settings\n2. Go to the Roles tab\n3. Find the 'muted' role\n4. Disable all Text Permissions abilities\n\nYour bot is now set up! :D",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "false",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "lolno",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Sorry, but you aren't the owner of this server",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "ADMINISTRATOR",
+            "CREATE_INSTANT_INVITE",
+            "KICK_MEMBERS",
+            "BAN_MEMBERS",
+            "MANAGE_CHANNELS",
+            "MANAGE_GUILD",
+            "ADD_REACTIONS",
+            "VIEW_AUDIT_LOG",
+            "PRIORITY_SPEAKER",
+            "STREAM",
+            "VIEW_CHANNEL",
+            "SEND_MESSAGES",
+            "SEND_TTS_MESSAGES",
+            "MANAGE_MESSAGES",
+            "EMBED_LINKS",
+            "ATTACH_FILES",
+            "READ_MESSAGE_HISTORY",
+            "MENTION_EVERYONE",
+            "USE_EXTERNAL_EMOJIS",
+            "VIEW_GUILD_INSIGHTS",
+            "CONNECT",
+            "SPEAK",
+            "MUTE_MEMBERS",
+            "DEAFEN_MEMBERS",
+            "MOVE_MEMBERS",
+            "USE_VAD",
+            "CHANGE_NICKNAME",
+            "MANAGE_NICKNAMES",
+            "MANAGE_ROLES",
+            "MANAGE_WEBHOOKS",
+            "MANAGE_EMOJIS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "warn",
+      "perms": [],
+      "actions": [
+        {
+          "name": "checkwarn",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "getwarneduser",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "varname": "warneduser",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "warn2",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "user": "${tempVars.warneduser.id}",
+              "field": "infractions",
+              "oper": "+",
+              "value": "1"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "warnno",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Sorry, but you don't have perms to warn members.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "MANAGE_MESSAGES",
+            "MUTE_MEMBERS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "infractions",
+      "perms": [],
+      "actions": [
+        {
+          "name": "getinfractions",
+          "category": "User Data",
+          "type": "Get User Data",
+          "user": "${tempVars.warneduser.id}",
+          "field": "infractions",
+          "varname": "totalinfractions",
+          "savevartype": "server",
+          "vartype": "User"
+        },
+        {
+          "name": "infractionstotal",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "Infractions",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "${serverVars.totalinfractions}\n",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "ban",
+      "actions": [
+        {
+          "name": "checkban",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "banuser",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "varname": "banuser",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "banuserr",
+              "category": "User Action",
+              "type": "Ban User",
+              "user": "${tempVars.banuser.id}",
+              "reason": "",
+              "days": ""
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "noban",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Sorry, but you don't have perms to ban members",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "BAN_MEMBERS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cap",
+      "actions": [
+        {
+          "name": "okk_1",
+          "category": "Message",
+          "type": "Command Cooldown",
+          "seconds": "5",
+          "msg1": "pls wait for the 5 second cooldown to end",
+          "msg2": ""
+        },
+        {
+          "name": "capp",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "https://media1.tenor.com/images/cbb313c771e0e47e0d596a53e33cac9f/tenor.gif?itemid=18293251",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "bruh",
+      "actions": [
+        {
+          "name": "okk_2",
+          "category": "Message",
+          "type": "Command Cooldown",
+          "seconds": "5",
+          "msg1": "pls wait for the 5 second cooldown to end",
+          "msg2": ""
+        },
+        {
+          "name": "bruhhhh",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "https://media1.tenor.com/images/577ce903e03e59a56d3384c777e23ce4/tenor.gif?itemid=14733439",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "helpmods",
+      "perms": [],
+      "actions": [
+        {
+          "name": "helpmod",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "```kick```",
+              "value": "will kick the @'ed member until they rejoin",
+              "inline": "false"
+            },
+            {
+              "name": "```ban```",
+              "value": "will permanently kick the @'ed member from the server",
+              "inline": "false"
+            },
+            {
+              "name": "```purge```",
+              "value": "will delete the number of messages you specify (max 100)",
+              "inline": "false"
+            },
+            {
+              "name": "```mute```",
+              "value": "will prevent an @'ed member from speaking in a channel",
+              "inline": "false"
+            },
+            {
+              "name": "```unmute```",
+              "value": "reallows an @'ed member to speak if previously muted",
+              "inline": "false"
+            },
+            {
+              "name": "```warn```",
+              "value": "warns a member",
+              "inline": "false"
+            },
+            {
+              "name": "```infractions```",
+              "value": "checks the number of infractions of an @'ed member",
+              "inline": "false"
+            }
+          ],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "Mod Commands",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "dice",
+      "perms": [],
+      "actions": []
+    },
+    {
+      "name": "helpfun",
+      "actions": [
+        {
+          "name": "helpfuns",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "```monke```",
+              "value": " a random image of a monke :D",
+              "inline": "false"
+            },
+            {
+              "name": "```cap```",
+              "value": "use this if someone is cappin'",
+              "inline": "false"
+            },
+            {
+              "name": "```bruh```",
+              "value": "use when there is a bruh moment",
+              "inline": "false"
+            },
+            {
+              "name": "",
+              "value": "",
+              "inline": "false"
+            }
+          ],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "856649",
+          "title": "help fun",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "monke",
+      "perms": [],
+      "actions": [
+        {
+          "name": "okk_3_1",
+          "category": "Message",
+          "type": "Command Cooldown",
+          "seconds": "5",
+          "msg1": "pls wait for the 5 second cooldown to end",
+          "msg2": ""
+        },
+        {
+          "name": "puppies!",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "https://www.placemonkeys.com/500/500?random=1",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "unban",
+      "actions": [
+        {
+          "name": "checkunban",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "unbann",
+              "category": "User Action",
+              "type": "Unban",
+              "id": "$$id$$"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "nounban",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Sorry, but you don't have perms to unban members.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "BAN_MEMBERS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "work",
+      "actions": [
+        {
+          "name": "workcooldown",
+          "category": "Message",
+          "type": "Command Cooldown",
+          "seconds": "120",
+          "msg1": "Wait 2 minutes to work again",
+          "msg2": ""
+        },
+        {
+          "name": "randombananas",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "varname": "bananas",
+          "min": "50",
+          "max": "1000",
+          "savevartype": "server"
+        },
+        {
+          "name": "addbananas",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "totalbananas",
+          "oper": "+",
+          "value": "${serverVars.bananas}"
+        },
+        {
+          "name": "bananawork",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "You worked for the banana factory and got ${serverVars.bananas} bananas in return!",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "bal",
+      "actions": [
+        {
+          "name": "totalbal",
+          "category": "User Data",
+          "type": "Get User Data",
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "totalbananas",
+          "varname": "totalbananas",
+          "savevartype": "server",
+          "vartype": "User"
+        },
+        {
+          "name": "bananabal",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "Balance",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "${serverVars.totalbananas}",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "helpeconomy",
+      "perms": [],
+      "actions": [
+        {
+          "name": "helpworks",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "work",
+              "value": "you work to gain bananas (2 min cooldown)",
+              "inline": "true"
+            },
+            {
+              "name": "bal",
+              "value": "check the total number of bananas you have",
+              "inline": "true"
+            }
+          ],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    }
+  ]
+}

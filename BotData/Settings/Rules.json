@@ -1,0 +1,20 @@
+{
+  "enabled": true,
+  "obj": {
+    "warnEnabled": true,
+    "kickEnabled": true,
+    "banEnabled": false,
+    "maxInterval": 2000,
+    "maxDuplicatesInterval": 30000,
+    "warnMessage": "{@user} please stop it :/",
+    "kickMessage": "{@user} why did you keep spamming?",
+    "banMessage": "{@user} you went over the line ://",
+    "warnThreshold": 5,
+    "kickThreshold": 10,
+    "banThreshold": 12,
+    "maxDuplicatesWarning": 4,
+    "maxDuplicatesKick": 10,
+    "maxDuplicatesBan": 12,
+    "debug": true
+  }
+}
