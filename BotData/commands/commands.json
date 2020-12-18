@@ -634,21 +634,11 @@
           "msg2": ""
         },
         {
-          "name": "puppies!",
+          "name": "monkeees",
           "category": "Message",
-          "type": "Send Embed",
+          "type": "Send Image",
           "channelname": "${dbsVars.CommandChannel.id}",
-          "color": "FFFFFF",
-          "title": "",
-          "url": "",
-          "authorname": "",
-          "authorimageurl": "",
-          "authorlink": "",
-          "description": "",
-          "thumbnail": "",
-          "image": "https://www.placemonkeys.com/500/500?random=1",
-          "footer": "",
-          "timestamp": "false",
+          "url": "https://www.placemonkeys.com/500/500?random=1",
           "savetovariable": "",
           "savetovariabletype": "temp"
         }

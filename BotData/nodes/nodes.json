@@ -1188,61 +1188,6 @@
       ]
     },
     {
-      "type": "response",
-      "name": "puppies!",
-      "guid": "0c9a93c3-5025-43a8-b951-07dd72aa4132",
-      "reactionFields": [],
-      "embedfields": [],
-      "outputs": [
-        {
-          "label": "next response",
-          "connections": []
-        }
-      ],
-      "inputs": [
-        {
-          "label": "trigger",
-          "id": "d90a0ddc-d4c6-4895-bdee-4c0d2c07516c"
-        }
-      ],
-      "x": 1056,
-      "y": 195,
-      "rtype": "Message",
-      "rsubtype": "Send Embed",
-      "formdata": [
-        "${dbsVars.CommandChannel.id}",
-        "FFFFFF",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "https://www.placemonkeys.com/500/500?random=1",
-        "",
-        "false",
-        "",
-        "temp"
-      ],
-      "formnames": [
-        "channelname",
-        "color",
-        "title",
-        "url",
-        "authorname",
-        "authorimageurl",
-        "authorlink",
-        "description",
-        "thumbnail",
-        "image",
-        "footer",
-        "timestamp",
-        "saveToVariable",
-        "saveToVariableType"
-      ]
-    },
-    {
       "type": "command",
       "name": "monke",
       "guid": "1a9d6f90-97f4-4cde-a98e-2e42864142c6",
@@ -1555,8 +1500,8 @@
           "id": "614f8509-6194-4512-81d0-76e122287954"
         }
       ],
-      "x": 269,
-      "y": 1466,
+      "x": 301,
+      "y": 1470,
       "rtype": "Message",
       "rsubtype": "Command Cooldown",
       "formdata": [
@@ -1590,8 +1535,8 @@
           "id": ""
         }
       ],
-      "x": 945,
-      "y": 106,
+      "x": 777,
+      "y": 68,
       "rtype": "Message",
       "rsubtype": "Command Cooldown",
       "formdata": [
@@ -1611,11 +1556,13 @@
       "guid": "d90a0ddc-d4c6-4895-bdee-4c0d2c07516c",
       "reactionFields": [],
       "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
           "connections": [
-            "0c9a93c3-5025-43a8-b951-07dd72aa4132"
+            "99595240-3ec1-4cc9-953c-488136bb1d97"
           ]
         }
       ],
@@ -1625,8 +1572,8 @@
           "id": "1a9d6f90-97f4-4cde-a98e-2e42864142c6"
         }
       ],
-      "x": 944,
-      "y": 181,
+      "x": 874,
+      "y": 144,
       "rtype": "Message",
       "rsubtype": "Command Cooldown",
       "formdata": [
@@ -2266,8 +2213,8 @@
           "id": "09ae3985-7310-4998-9379-3282cb100375"
         }
       ],
-      "x": 134,
-      "y": 1102,
+      "x": 163,
+      "y": 1105,
       "rtype": "User Action",
       "rsubtype": "Check User Permissions",
       "formdata": [
@@ -2628,6 +2575,43 @@
         "image",
         "footer",
         "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "monkeees",
+      "guid": "99595240-3ec1-4cc9-953c-488136bb1d97",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "d90a0ddc-d4c6-4895-bdee-4c0d2c07516c"
+        }
+      ],
+      "x": 1056,
+      "y": 165,
+      "rtype": "Message",
+      "rsubtype": "Send Image",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "https://www.placemonkeys.com/500/500?random=1",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "url",
         "saveToVariable",
         "saveToVariableType"
       ]
