@@ -40,8 +40,15 @@
           "name": "```helpfun```",
           "value": "Fun stuff!",
           "inline": "false"
+        },
+        {
+          "name": "```helpxp```",
+          "value": "XP Commands!",
+          "inline": "false"
         }
       ],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -1085,6 +1092,8 @@
           "inline": "false"
         }
       ],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -2694,7 +2703,7 @@
       "rsubtype": "Send Embed",
       "formdata": [
         "${dbsVars.CommandChannel.id}",
-        "000000",
+        "856649",
         "",
         "",
         "${dbsVars.CommandAuthor.id}",
@@ -2949,8 +2958,6 @@
       "guid": "6bea34a9-13b0-4340-a1a6-4aeae7e07e0c",
       "reactionFields": [],
       "embedfields": [],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -2986,8 +2993,6 @@
       "guid": "a07addd0-f4a2-4fa3-839e-e55ee96769b3",
       "reactionFields": [],
       "embedfields": [],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -3085,6 +3090,89 @@
       "formnames": [
         "channelName",
         "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "helpxp",
+      "guid": "2ed37c9a-4eee-4a0a-b657-df64ea25a424",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "095f2324-2daf-4400-94c2-759fd7ca2884"
+          ]
+        }
+      ],
+      "x": 446,
+      "y": 145
+    },
+    {
+      "type": "response",
+      "name": "helpxpp",
+      "guid": "095f2324-2daf-4400-94c2-759fd7ca2884",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "```level```",
+          "value": "check your total number of levels and prestiges!",
+          "inline": "false"
+        },
+        {
+          "name": "```prestige```",
+          "value": "use this when you've reached level 100 to gain an xp boost!",
+          "inline": "false"
+        }
+      ],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "2ed37c9a-4eee-4a0a-b657-df64ea25a424"
+        }
+      ],
+      "x": 605,
+      "y": 150,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "856649",
+        "xp help!",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
         "saveToVariable",
         "saveToVariableType"
       ]
