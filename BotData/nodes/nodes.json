@@ -2706,7 +2706,7 @@
         "<@${dbsVars.CommandAuthor.id}>",
         "${dbsVars.CommandAuthor.user.avatarURL}",
         "",
-        "```Level```: ${serverVars.xplevel}\n```XP```: ${serverVars.xp}/1000\n_You can prestige at level 100!_\n```Prestiges```: ${serverVars.xprestige}",
+        "**Level**: ${serverVars.xplevel}\n**XP**: ${serverVars.xp}/1000\n_You can prestige at level 100!_\n**Prestiges**: ${serverVars.xprestige}",
         "",
         "",
         "",
@@ -2753,7 +2753,7 @@
           "id": "c3aead70-6b42-43bd-a01b-2e2714e98883"
         }
       ],
-      "x": 306,
+      "x": 307,
       "y": 2052,
       "rtype": "User Data",
       "rsubtype": "Get User Data",
