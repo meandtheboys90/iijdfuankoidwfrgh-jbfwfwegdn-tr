@@ -832,6 +832,7 @@
     },
     {
       "name": "level",
+      "perms": [],
       "actions": [
         {
           "name": "xplevel",

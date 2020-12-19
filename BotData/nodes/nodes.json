@@ -47,8 +47,6 @@
           "inline": "false"
         }
       ],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -1092,8 +1090,6 @@
           "inline": "false"
         }
       ],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -2674,8 +2670,9 @@
           ]
         }
       ],
-      "x": 135,
-      "y": 2065
+      "x": 138,
+      "y": 2065,
+      "perms": []
     },
     {
       "type": "response",
@@ -2697,8 +2694,8 @@
           "id": "041a7a20-d98e-41ae-8ade-e72cddc7239d"
         }
       ],
-      "x": 865,
-      "y": 2064,
+      "x": 849,
+      "y": 2060,
       "rtype": "Message",
       "rsubtype": "Send Embed",
       "formdata": [
@@ -2797,7 +2794,7 @@
           "id": "c4ac1118-717a-4c17-a3c4-ac006886d2e7"
         }
       ],
-      "x": 501,
+      "x": 492,
       "y": 2058,
       "rtype": "User Data",
       "rsubtype": "Get User Data",
@@ -2838,8 +2835,8 @@
           "id": "6ad153db-636a-4eb5-9cb4-19313d062a34"
         }
       ],
-      "x": 681,
-      "y": 2061,
+      "x": 654,
+      "y": 2054,
       "rtype": "User Data",
       "rsubtype": "Get User Data",
       "formdata": [
@@ -3028,8 +3025,6 @@
       "guid": "857d856d-09a1-4a4c-8017-7b736dd883fc",
       "reactionFields": [],
       "embedfields": [],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -3126,8 +3121,6 @@
           "inline": "false"
         }
       ],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
