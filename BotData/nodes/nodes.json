@@ -2681,7 +2681,7 @@
       "reactionFields": [],
       "embedfields": [],
       "saveToVariable": "",
-      "saveToVariableType": "server",
+      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -2703,16 +2703,16 @@
         "856649",
         "",
         "",
-        "${dbsVars.CommandAuthor.id}",
+        "<@${dbsVars.CommandAuthor.id}>",
         "${dbsVars.CommandAuthor.user.avatarURL}",
         "",
-        "Level: ${serverVars.xplevel}\nXP: ${serverVars.xp}/1000\nYou can prestige at level 100!\nPrestiges: ${serverVars.xprestige}",
+        "```Level```: ${serverVars.xplevel}\n```XP```: ${serverVars.xp}/1000\n_You can prestige at level 100!_\n```Prestiges```: ${serverVars.xprestige}",
         "",
         "",
         "",
         "false",
         "",
-        "server"
+        "temp"
       ],
       "formnames": [
         "channelname",

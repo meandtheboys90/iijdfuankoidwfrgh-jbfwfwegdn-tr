@@ -872,16 +872,16 @@
           "color": "856649",
           "title": "",
           "url": "",
-          "authorname": "${dbsVars.CommandAuthor.id}",
+          "authorname": "<@${dbsVars.CommandAuthor.id}>",
           "authorimageurl": "${dbsVars.CommandAuthor.user.avatarURL}",
           "authorlink": "",
-          "description": "Level: ${serverVars.xplevel}\nXP: ${serverVars.xp}/1000\nYou can prestige at level 100!\nPrestiges: ${serverVars.xprestige}",
+          "description": "```Level```: ${serverVars.xplevel}\n```XP```: ${serverVars.xp}/1000\n_You can prestige at level 100!_\n```Prestiges```: ${serverVars.xprestige}",
           "thumbnail": "",
           "image": "",
           "footer": "",
           "timestamp": "false",
           "savetovariable": "",
-          "savetovariabletype": "server"
+          "savetovariabletype": "temp"
         }
       ]
     },
