@@ -2681,7 +2681,7 @@
       "reactionFields": [],
       "embedfields": [],
       "saveToVariable": "",
-      "saveToVariableType": "temp",
+      "saveToVariableType": "server",
       "outputs": [
         {
           "label": "next response",
@@ -2694,8 +2694,8 @@
           "id": "041a7a20-d98e-41ae-8ade-e72cddc7239d"
         }
       ],
-      "x": 849,
-      "y": 2060,
+      "x": 801,
+      "y": 2052,
       "rtype": "Message",
       "rsubtype": "Send Embed",
       "formdata": [
@@ -2712,7 +2712,7 @@
         "",
         "false",
         "",
-        "temp"
+        "server"
       ],
       "formnames": [
         "channelname",
@@ -2753,8 +2753,8 @@
           "id": "c3aead70-6b42-43bd-a01b-2e2714e98883"
         }
       ],
-      "x": 332,
-      "y": 2054,
+      "x": 306,
+      "y": 2052,
       "rtype": "User Data",
       "rsubtype": "Get User Data",
       "formdata": [
@@ -2794,12 +2794,12 @@
           "id": "c4ac1118-717a-4c17-a3c4-ac006886d2e7"
         }
       ],
-      "x": 492,
-      "y": 2058,
+      "x": 467,
+      "y": 2057,
       "rtype": "User Data",
       "rsubtype": "Get User Data",
       "formdata": [
-        "${dbsVars.CommandChannel.id}",
+        "${dbsVars.CommandAuthor.id}",
         "randomxp",
         "xp",
         "server",
@@ -2835,8 +2835,8 @@
           "id": "6ad153db-636a-4eb5-9cb4-19313d062a34"
         }
       ],
-      "x": 654,
-      "y": 2054,
+      "x": 628,
+      "y": 2061,
       "rtype": "User Data",
       "rsubtype": "Get User Data",
       "formdata": [

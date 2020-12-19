@@ -848,7 +848,7 @@
           "name": "randomxp",
           "category": "User Data",
           "type": "Get User Data",
-          "user": "${dbsVars.CommandChannel.id}",
+          "user": "${dbsVars.CommandAuthor.id}",
           "field": "randomxp",
           "varname": "xp",
           "savevartype": "server",
@@ -881,7 +881,7 @@
           "footer": "",
           "timestamp": "false",
           "savetovariable": "",
-          "savetovariabletype": "temp"
+          "savetovariabletype": "server"
         }
       ]
     },
