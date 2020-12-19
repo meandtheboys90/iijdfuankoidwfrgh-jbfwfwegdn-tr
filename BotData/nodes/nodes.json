@@ -1034,7 +1034,9 @@
       "outputs": [
         {
           "label": "responses",
-          "connections": []
+          "connections": [
+            "7bc1c96e-a971-4557-803e-93d5b551144a"
+          ]
         }
       ],
       "x": 174,
@@ -1078,8 +1080,8 @@
           "inline": "false"
         },
         {
-          "name": "",
-          "value": "",
+          "name": "```dice```",
+          "value": "roll a random number between 0 and 100!",
           "inline": "false"
         }
       ],
@@ -1108,61 +1110,6 @@
         "",
         "",
         "",
-        "",
-        "",
-        "",
-        "false",
-        "",
-        "temp"
-      ],
-      "formnames": [
-        "channelname",
-        "color",
-        "title",
-        "url",
-        "authorname",
-        "authorimageurl",
-        "authorlink",
-        "description",
-        "thumbnail",
-        "image",
-        "footer",
-        "timestamp",
-        "saveToVariable",
-        "saveToVariableType"
-      ]
-    },
-    {
-      "type": "response",
-      "name": "roll",
-      "guid": "5c77519e-07cb-4480-82fb-b9bf997f26c6",
-      "reactionFields": [],
-      "embedfields": [],
-      "outputs": [
-        {
-          "label": "next response",
-          "connections": []
-        }
-      ],
-      "inputs": [
-        {
-          "label": "trigger",
-          "id": "eb8a29b7-17aa-4f80-8a56-4493c52f6444"
-        }
-      ],
-      "x": 622,
-      "y": 1577,
-      "rtype": "Message",
-      "rsubtype": "Send Embed",
-      "formdata": [
-        "${dbsVars.CommandChannel.id}",
-        "FFFFFF",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "You rolled ${serverVars.bananas} bananas!",
         "",
         "",
         "",
@@ -1421,7 +1368,9 @@
       "outputs": [
         {
           "label": "next response",
-          "connections": []
+          "connections": [
+            "783234be-8845-4a86-bb7a-a0cfe2cbd2fa"
+          ]
         }
       ],
       "inputs": [
@@ -1430,13 +1379,13 @@
           "id": "87e31bcc-5e06-41db-92f6-b241e5a1ece6"
         }
       ],
-      "x": 351,
-      "y": 1588,
+      "x": 336,
+      "y": 1598,
       "rtype": "Message",
       "rsubtype": "Command Cooldown",
       "formdata": [
-        "120",
-        "pls wait for the 2 minute cooldown to end",
+        "10",
+        "pls wait for the 10 second cooldown to end",
         ""
       ],
       "formnames": [
@@ -2402,7 +2351,7 @@
           "id": "6750226f-0d2f-49eb-9eea-56a7396d4f3e"
         }
       ],
-      "x": 447,
+      "x": 450,
       "y": 1898,
       "rtype": "Message",
       "rsubtype": "Send Embed",
@@ -2583,8 +2532,6 @@
       "guid": "177d85ac-9d39-41ba-83e2-f658a0491df8",
       "reactionFields": [],
       "embedfields": [],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -2597,7 +2544,7 @@
           "id": "d90a0ddc-d4c6-4895-bdee-4c0d2c07516c"
         }
       ],
-      "x": 1056,
+      "x": 1057,
       "y": 210,
       "rtype": "Message",
       "rsubtype": "Send Embed",
@@ -2611,7 +2558,7 @@
         "",
         "",
         "",
-        "https://www.placemonkeys.com/500/500?random=1",
+        "",
         "",
         "false",
         "",
@@ -2630,6 +2577,514 @@
         "image",
         "footer",
         "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "rollbananas",
+      "guid": "783234be-8845-4a86-bb7a-a0cfe2cbd2fa",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "e33dc8c4-212a-4db4-a367-ad36c5ea0916"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7bc1c96e-a971-4557-803e-93d5b551144a"
+        }
+      ],
+      "x": 497,
+      "y": 1602,
+      "rtype": "Variable",
+      "rsubtype": "Generate Random Number",
+      "formdata": [
+        "rolledbananas",
+        "0 ",
+        "100",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "min",
+        "max",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "bananasrolled",
+      "guid": "e33dc8c4-212a-4db4-a367-ad36c5ea0916",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "783234be-8845-4a86-bb7a-a0cfe2cbd2fa"
+        }
+      ],
+      "x": 658,
+      "y": 1604,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "You rolled a ${tempVars.rolledbananas} ",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "level",
+      "guid": "c3aead70-6b42-43bd-a01b-2e2714e98883",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "c4ac1118-717a-4c17-a3c4-ac006886d2e7"
+          ]
+        }
+      ],
+      "x": 135,
+      "y": 2065
+    },
+    {
+      "type": "response",
+      "name": "totallevel",
+      "guid": "f8a5968d-1e8c-47d8-b0cb-68f8b1d2cb54",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "041a7a20-d98e-41ae-8ade-e72cddc7239d"
+        }
+      ],
+      "x": 865,
+      "y": 2064,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "000000",
+        "",
+        "",
+        "${dbsVars.CommandAuthor.id}",
+        "${dbsVars.CommandAuthor.user.avatarURL}",
+        "",
+        "Level: ${serverVars.xplevel}\nXP: ${serverVars.xp}/1000\nYou can prestige at level 100!\nPrestiges: ${serverVars.xprestige}",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "xplevel",
+      "guid": "c4ac1118-717a-4c17-a3c4-ac006886d2e7",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "xplevel",
+      "saveToVariableType": "server",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "6ad153db-636a-4eb5-9cb4-19313d062a34"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c3aead70-6b42-43bd-a01b-2e2714e98883"
+        }
+      ],
+      "x": 332,
+      "y": 2054,
+      "rtype": "User Data",
+      "rsubtype": "Get User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "xplevel",
+        "xplevel",
+        "server",
+        "User"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "varname",
+        "saveVarType",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "randomxp",
+      "guid": "6ad153db-636a-4eb5-9cb4-19313d062a34",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "xp",
+      "saveToVariableType": "server",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "041a7a20-d98e-41ae-8ade-e72cddc7239d"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c4ac1118-717a-4c17-a3c4-ac006886d2e7"
+        }
+      ],
+      "x": 501,
+      "y": 2058,
+      "rtype": "User Data",
+      "rsubtype": "Get User Data",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "randomxp",
+        "xp",
+        "server",
+        "User"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "varname",
+        "saveVarType",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "xpprestige",
+      "guid": "041a7a20-d98e-41ae-8ade-e72cddc7239d",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "xprestige",
+      "saveToVariableType": "server",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "f8a5968d-1e8c-47d8-b0cb-68f8b1d2cb54"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6ad153db-636a-4eb5-9cb4-19313d062a34"
+        }
+      ],
+      "x": 681,
+      "y": 2061,
+      "rtype": "User Data",
+      "rsubtype": "Get User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "xpprestige",
+        "xprestige",
+        "server",
+        "User"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "varname",
+        "saveVarType",
+        "vartype"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "prestige",
+      "guid": "0e7e4521-3c53-44a6-8209-ffce62453d7c",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "011cb3a0-7111-4fbc-8f93-572dac4bf703"
+          ]
+        }
+      ],
+      "x": 137,
+      "y": 2174
+    },
+    {
+      "type": "response",
+      "name": "checkreq",
+      "guid": "011cb3a0-7111-4fbc-8f93-572dac4bf703",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "f1b01f26-9a12-41f6-b61a-eeb8948f695a"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "1cc0bbd5-416f-47f1-a584-fa1342602db0"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "0e7e4521-3c53-44a6-8209-ffce62453d7c"
+        }
+      ],
+      "x": 303,
+      "y": 2170,
+      "rtype": "User Data",
+      "rsubtype": "Check User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "${serverVars.xplevel}",
+        "greater than",
+        "99"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "prestigeclear",
+      "guid": "f1b01f26-9a12-41f6-b61a-eeb8948f695a",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "6bea34a9-13b0-4340-a1a6-4aeae7e07e0c"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "011cb3a0-7111-4fbc-8f93-572dac4bf703"
+        }
+      ],
+      "x": 477,
+      "y": 2181,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "xpprestige",
+        "+",
+        "1"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "resetlevel",
+      "guid": "6bea34a9-13b0-4340-a1a6-4aeae7e07e0c",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "a07addd0-f4a2-4fa3-839e-e55ee96769b3"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f1b01f26-9a12-41f6-b61a-eeb8948f695a"
+        }
+      ],
+      "x": 634,
+      "y": 2184,
+      "rtype": "User Data",
+      "rsubtype": "Set User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "xplevel",
+        "0"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "fieldvalue"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "resetxp",
+      "guid": "a07addd0-f4a2-4fa3-839e-e55ee96769b3",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "857d856d-09a1-4a4c-8017-7b736dd883fc"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6bea34a9-13b0-4340-a1a6-4aeae7e07e0c"
+        }
+      ],
+      "x": 791,
+      "y": 2182,
+      "rtype": "User Data",
+      "rsubtype": "Set User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "randomxp",
+        "0"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "fieldvalue"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "prestigegood",
+      "guid": "857d856d-09a1-4a4c-8017-7b736dd883fc",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a07addd0-f4a2-4fa3-839e-e55ee96769b3"
+        }
+      ],
+      "x": 997,
+      "y": 2184,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Nice Job, <@${dbsVars.CommandAuthor.id}> ! your XP gain has been increased by 25%!",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "noprestige",
+      "guid": "1cc0bbd5-416f-47f1-a584-fa1342602db0",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "011cb3a0-7111-4fbc-8f93-572dac4bf703"
+        }
+      ],
+      "x": 473,
+      "y": 2302,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Sorry, but you need a level of 100 to prestige!",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
         "saveToVariable",
         "saveToVariableType"
       ]

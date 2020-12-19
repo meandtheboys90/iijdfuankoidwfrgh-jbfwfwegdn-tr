@@ -573,7 +573,34 @@
     {
       "name": "dice",
       "perms": [],
-      "actions": []
+      "actions": [
+        {
+          "name": "okk",
+          "category": "Message",
+          "type": "Command Cooldown",
+          "seconds": "10",
+          "msg1": "pls wait for the 10 second cooldown to end",
+          "msg2": ""
+        },
+        {
+          "name": "rollbananas",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "varname": "rolledbananas",
+          "min": "0 ",
+          "max": "100",
+          "savevartype": "temp"
+        },
+        {
+          "name": "bananasrolled",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "You rolled a ${tempVars.rolledbananas} ",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
     },
     {
       "name": "helpfun",
@@ -599,8 +626,8 @@
               "inline": "false"
             },
             {
-              "name": "",
-              "value": "",
+              "name": "```dice```",
+              "value": "roll a random number between 0 and 100!",
               "inline": "false"
             }
           ],
@@ -640,11 +667,11 @@
           "channelname": "${dbsVars.CommandChannel.id}",
           "color": "FFFFFF",
           "title": "click the picture for a random monke! :D",
-          "url": "",
+          "url": "https://www.placemonkeys.com/500/500?random=1",
           "authorname": "",
           "authorimageurl": "",
           "authorlink": "",
-          "description": "https://www.placemonkeys.com/500/500?random=1",
+          "description": "",
           "thumbnail": "",
           "image": "",
           "footer": "",
@@ -795,6 +822,121 @@
           "timestamp": "false",
           "savetovariable": "",
           "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "level",
+      "actions": [
+        {
+          "name": "xplevel",
+          "category": "User Data",
+          "type": "Get User Data",
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "xplevel",
+          "varname": "xplevel",
+          "savevartype": "server",
+          "vartype": "User"
+        },
+        {
+          "name": "randomxp",
+          "category": "User Data",
+          "type": "Get User Data",
+          "user": "${dbsVars.CommandChannel.id}",
+          "field": "randomxp",
+          "varname": "xp",
+          "savevartype": "server",
+          "vartype": "User"
+        },
+        {
+          "name": "xpprestige",
+          "category": "User Data",
+          "type": "Get User Data",
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "xpprestige",
+          "varname": "xprestige",
+          "savevartype": "server",
+          "vartype": "User"
+        },
+        {
+          "name": "totallevel",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "000000",
+          "title": "",
+          "url": "",
+          "authorname": "${dbsVars.CommandAuthor.id}",
+          "authorimageurl": "${dbsVars.CommandAuthor.user.avatarURL}",
+          "authorlink": "",
+          "description": "Level: ${serverVars.xplevel}\nXP: ${serverVars.xp}/1000\nYou can prestige at level 100!\nPrestiges: ${serverVars.xprestige}",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "prestige",
+      "actions": [
+        {
+          "name": "checkreq",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "prestigeclear",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "user": "${dbsVars.CommandAuthor.id}",
+              "field": "xpprestige",
+              "oper": "+",
+              "value": "1"
+            },
+            {
+              "name": "resetlevel",
+              "category": "User Data",
+              "type": "Set User Data",
+              "user": "${dbsVars.CommandAuthor.id}",
+              "field": "xplevel",
+              "fieldvalue": "0"
+            },
+            {
+              "name": "resetxp",
+              "category": "User Data",
+              "type": "Set User Data",
+              "user": "${dbsVars.CommandAuthor.id}",
+              "field": "randomxp",
+              "fieldvalue": "0"
+            },
+            {
+              "name": "prestigegood",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Nice Job, <@${dbsVars.CommandAuthor.id}> ! your XP gain has been increased by 25%!",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "noprestige",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Sorry, but you need a level of 100 to prestige!",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "${serverVars.xplevel}",
+          "compare": "greater than",
+          "value": "99"
         }
       ]
     }

@@ -27,7 +27,9 @@
       "outputs": [
         {
           "label": "responses",
-          "connections": []
+          "connections": [
+            "f5ca60e6-4cdc-43e5-9b10-baabba0db0ca"
+          ]
         }
       ],
       "x": 101,
@@ -137,6 +139,332 @@
         "saveToVariable",
         "saveToVariableType"
       ]
+    },
+    {
+      "type": "response",
+      "name": "givexp",
+      "guid": "510848de-c8a1-4c45-b05d-99b394543ec3",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "b5feab27-d4c1-4c95-bd1e-083b53f6aef8"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f0443213-224d-4067-a956-5f77ab0c652d"
+        }
+      ],
+      "x": 432,
+      "y": 495,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "${tempVars.msguser.id}",
+        "randomxp",
+        "+",
+        "${serverVars.randomxp}"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "randomxp",
+      "guid": "f0443213-224d-4067-a956-5f77ab0c652d",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "510848de-c8a1-4c45-b05d-99b394543ec3"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f5ca60e6-4cdc-43e5-9b10-baabba0db0ca"
+        }
+      ],
+      "x": 264,
+      "y": 492,
+      "rtype": "Variable",
+      "rsubtype": "Generate Random Number",
+      "formdata": [
+        "randomxp",
+        "10",
+        "50",
+        "server"
+      ],
+      "formnames": [
+        "varname",
+        "min",
+        "max",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "checklevel",
+      "guid": "b5feab27-d4c1-4c95-bd1e-083b53f6aef8",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "92c0e987-ed90-4698-af93-83e970eff5bc"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "510848de-c8a1-4c45-b05d-99b394543ec3"
+        }
+      ],
+      "x": 609,
+      "y": 483,
+      "rtype": "User Data",
+      "rsubtype": "Check User Data",
+      "formdata": [
+        "${tempVars.msguser.id}",
+        "randomxp",
+        "greater than",
+        "999"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "resetxp",
+      "guid": "92c0e987-ed90-4698-af93-83e970eff5bc",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "3eb688fe-2632-44e4-aca8-4b2246155612"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "b5feab27-d4c1-4c95-bd1e-083b53f6aef8"
+        }
+      ],
+      "x": 781,
+      "y": 477,
+      "rtype": "User Data",
+      "rsubtype": "Set User Data",
+      "formdata": [
+        "${tempVars.msguser.id}",
+        "randomxp",
+        "0"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "fieldvalue"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "addlevel",
+      "guid": "3eb688fe-2632-44e4-aca8-4b2246155612",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "92c0e987-ed90-4698-af93-83e970eff5bc"
+        }
+      ],
+      "x": 946,
+      "y": 482,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "${tempVars.msguser.id}",
+        "xplevel",
+        "+",
+        "1"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "checkprestige",
+      "guid": "f5ca60e6-4cdc-43e5-9b10-baabba0db0ca",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "ed66ea73-0edb-410b-96a0-7db9f362a397"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "f0443213-224d-4067-a956-5f77ab0c652d"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "49ebbc23-2903-4f05-ab69-bc9ecb4f8888"
+        }
+      ],
+      "x": 261,
+      "y": 337,
+      "rtype": "User Data",
+      "rsubtype": "Check User Data",
+      "formdata": [
+        "${tempVars.msguser.id}",
+        "xpprestige",
+        "greater than",
+        "0"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "prestigexp",
+      "guid": "ed66ea73-0edb-410b-96a0-7db9f362a397",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "79c8866b-169c-4ac2-9e38-3c77781a8813"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f5ca60e6-4cdc-43e5-9b10-baabba0db0ca"
+        }
+      ],
+      "x": 434,
+      "y": 289,
+      "rtype": "Variable",
+      "rsubtype": "Generate Random Number",
+      "formdata": [
+        "prestigexp",
+        "50",
+        "125",
+        "server"
+      ],
+      "formnames": [
+        "varname",
+        "min",
+        "max",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "giveprestigexp",
+      "guid": "79c8866b-169c-4ac2-9e38-3c77781a8813",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "ed66ea73-0edb-410b-96a0-7db9f362a397"
+        }
+      ],
+      "x": 614,
+      "y": 287,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "${tempVars.msguser.id}",
+        "randomxp",
+        "+",
+        "${serverVars.prestigexp}"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "levelup",
+      "guid": "f209a59e-f5ba-4049-8475-50e59048b279",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": []
+        }
+      ],
+      "x": 1178,
+      "y": 535,
+      "rtype": "Message",
+      "rsubtype": "Send Message"
     }
   ]
 }

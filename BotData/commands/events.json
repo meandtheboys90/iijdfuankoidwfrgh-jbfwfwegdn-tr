@@ -11,7 +11,86 @@
     {
       "name": "Any Message",
       "perms": [],
-      "actions": [],
+      "actions": [
+        {
+          "name": "checkprestige",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "prestigexp",
+              "category": "Variable",
+              "type": "Generate Random Number",
+              "varname": "prestigexp",
+              "min": "50",
+              "max": "125",
+              "savevartype": "server"
+            },
+            {
+              "name": "giveprestigexp",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "user": "${tempVars.msguser.id}",
+              "field": "randomxp",
+              "oper": "+",
+              "value": "${serverVars.prestigexp}"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "randomxp",
+              "category": "Variable",
+              "type": "Generate Random Number",
+              "varname": "randomxp",
+              "min": "10",
+              "max": "50",
+              "savevartype": "server"
+            },
+            {
+              "name": "givexp",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "user": "${tempVars.msguser.id}",
+              "field": "randomxp",
+              "oper": "+",
+              "value": "${serverVars.randomxp}"
+            },
+            {
+              "name": "checklevel",
+              "category": "User Data",
+              "type": "Check User Data",
+              "trueActions": [
+                {
+                  "name": "resetxp",
+                  "category": "User Data",
+                  "type": "Set User Data",
+                  "user": "${tempVars.msguser.id}",
+                  "field": "randomxp",
+                  "fieldvalue": "0"
+                },
+                {
+                  "name": "addlevel",
+                  "category": "User Data",
+                  "type": "Edit User Data",
+                  "user": "${tempVars.msguser.id}",
+                  "field": "xplevel",
+                  "oper": "+",
+                  "value": "1"
+                }
+              ],
+              "falseActions": [],
+              "user": "${tempVars.msguser.id}",
+              "field": "randomxp",
+              "compare": "greater than",
+              "value": "999"
+            }
+          ],
+          "user": "${tempVars.msguser.id}",
+          "field": "xpprestige",
+          "compare": "greater than",
+          "value": "0"
+        }
+      ],
       "var": {
         "user": "msguser"
       }
